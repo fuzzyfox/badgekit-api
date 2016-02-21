@@ -31,7 +31,7 @@ function createFromFile (file, callback) {
 
     const row = {
       slug: hash('md5', Date.now() + file.path),
-      mimetype: file.mimetype,
+      mimetype: file.mimetype || file.type,
       data: data
     };
 
@@ -78,7 +78,7 @@ function putModel(Model) {
         image = {url: image};
       } else {
         image = {
-          mimetype: image.type,
+          mimetype: image.mimetype || image.type,
           size: image.size,
           path: image.path
         };
